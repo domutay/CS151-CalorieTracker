@@ -32,8 +32,8 @@ For the front end, we will be using HTML, CSS, and Bootstrap. For the back end, 
 ### Functionality: How our solution tackles the issues?
 This solution will tackle all of the issues in one central place. The application will allow a person to easily keep track of their calories by calculating the calories they have consumed each day based on their food input. On top of providing recommendations for foods, the app will also provide recipes for their recommendations, giving users a personal experience and an opportunity to make the dishes themselves. The app will also contain a feature where users can track their daily nutritional intake based on the foods they have eaten, providing an extra layer of personalization that helps them visualize the healthiness of the food they eat. 
 
-## Operations: Expected User operations
-### User:
+### Operations: Expected User operations
+#### User:
 * Create account
 * Add in favorite foods and recipes
 * Input food eaten for the day
@@ -41,7 +41,7 @@ This solution will tackle all of the issues in one central place. The applicatio
 * Create a calorie count goal
 * Get recipe for dishes
 
-### Admin (?):
+#### Admin (?):
 * Add new recipes 
 
 ## References: 
