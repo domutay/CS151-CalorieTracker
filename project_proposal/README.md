@@ -1,27 +1,27 @@
-# CS151 Calorie Tracker
+# CS151 Calorie Tracker - Proposal
 
 ## Team 7: 
 * Dominic Labutay 
 * Brendan Requierme 
 * Bhagyesh Rathi
 
-### Team members working on the proposal: 
+## Team members working on the proposal: 
 * Dominic Labutay 
 * Brendan Requierme 
 * Bhagyesh Rathi
 
-### Problem/issue to resolve: 
+## Problem/issue to resolve: 
 * People having trouble with dieting/counting their calories
   
-### Links of current implementations example:
+## Links of current implementations example:
 * https://www.myfitnesspal.com/
 * https://cronometer.com/
 
-### Assumptions: 
+## Assumptions: 
 * People insert the food and calories they track
-### Operating Enviorment: 
+## Operating Enviorment: 
 * It will be a website on your computer or code that can run on your localhost
-### Usage: 
+## Usage: 
 * This app will be to count your calories and to get suggestions on what to eat next based on if you’ve had breakfast, lunch, dinner and your calorie goal
 
 ## High-level description:
