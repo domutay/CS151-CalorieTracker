@@ -41,9 +41,6 @@ This solution will tackle all of the issues in one central place. The applicatio
 * Create a calorie count goal
 * Get recipe for dishes
 
-#### Admin (?):
-* Add new recipes 
-
 ## References: 
 
 * 1. API KEY: FOOD DATA CENTRAL https://fdc.nal.usda.gov/api-guide.html
