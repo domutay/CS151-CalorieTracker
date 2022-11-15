@@ -1,4 +1,4 @@
-package io.ctracker.calorietracker;
+package cs151.calorieTracker;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
