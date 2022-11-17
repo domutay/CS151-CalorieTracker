@@ -1,4 +1,4 @@
-package io.ctracker.calorietracker;
+package cs151.calorieTracker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

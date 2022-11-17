@@ -1,8 +1,3 @@
-# Read Me First
-The following was discovered as part of building this project:
-
-* The original package name 'io.ctracker.calorie-tracker' is invalid and this project uses 'io.ctracker.calorietracker' instead.
-
 # Getting Started
 
 ### Reference Documentation
@@ -14,6 +9,7 @@ For further reference, please consider the following sections:
 * [Spring Web](https://docs.spring.io/spring-boot/docs/2.7.5/reference/htmlsingle/#web)
 * [Thymeleaf](https://docs.spring.io/spring-boot/docs/2.7.5/reference/htmlsingle/#web.servlet.spring-mvc.template-engines)
 * [Spring Boot DevTools](https://docs.spring.io/spring-boot/docs/2.7.5/reference/htmlsingle/#using.devtools)
+* [Spring Data MongoDB](https://docs.spring.io/spring-boot/docs/2.7.5/reference/htmlsingle/#data.nosql.mongodb)
 
 ### Guides
 The following guides illustrate how to use some features concretely:
@@ -22,4 +18,5 @@ The following guides illustrate how to use some features concretely:
 * [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
 * [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
 * [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/)
+* [Accessing Data with MongoDB](https://spring.io/guides/gs/accessing-data-mongodb/)
 
