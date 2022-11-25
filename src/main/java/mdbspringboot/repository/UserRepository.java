@@ -1,6 +1,6 @@
-package cs151.mdbspringboot.repository;
+package mdbspringboot.repository;
 
-import cs151.mdbspringboot.model.UserModel;
+import mdbspringboot.model.UserModel;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 

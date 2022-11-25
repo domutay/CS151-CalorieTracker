@@ -1,5 +1,4 @@
-package cs151.mdbspringboot.model;
-
+package mdbspringboot.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
