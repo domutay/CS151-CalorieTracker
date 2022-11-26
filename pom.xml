@@ -8,11 +8,11 @@
 		<version>2.7.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>cs151</groupId>
-	<artifactId>calorieTracker</artifactId>
+	<groupId>com.calorietracker</groupId>
+	<artifactId>calorietracker</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>calorieTracker</name>
-	<description>Calorie Tracker</description>
+	<name>calorietracker</name>
+	<description>CalorieTracker project</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -20,6 +20,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongodb-driver-sync</artifactId>
+			<version>4.7.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

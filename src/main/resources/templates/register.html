@@ -20,30 +20,30 @@
   <h2>Registration</h2>
     <div>
       <div class="bd-example-snippet bd-code-snippet"><div class="bd-example">
-        <form>
+        <form action="#" th:action="@{/home}" th:object="${user}" method="post">
           <div class="mb-3">
             <label for="username" class="form-label">Username</label>
             <div class="input-group has-validation">
               <span class="input-group-text" id="inputGroupPrepend3">@</span>
-              <input type="text" class="form-control" id="username" aria-describedby="inputGroupPrepend3">
+              <input th:field="*{username}" type="text" class="form-control" id="username" aria-describedby="inputGroupPrepend3">
             </div>
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="email" th:field="*{email}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" th:field="*{password}" class="form-control" id="exampleInputPassword1">
           </div>
           <div class="mb-3">
             <label for="ageRange" class="form-label">Age</label>
-            <input type="range" class="form-range" min="0" max="120" step="1" id="ageRange" oninput="this.nextElementSibling.value = this.value">
+            <input type="range" th:field="*{age}" class="form-range" min="0" max="120" step="1" id="ageRange" oninput="this.nextElementSibling.value = this.value">
             <output>0</output>
           </div>
           <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <input type="checkbox" th:field="*{recommend}" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">I want to receive personalized food recommendations.</label>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
