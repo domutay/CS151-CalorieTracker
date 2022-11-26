@@ -1,12 +1,9 @@
 package com.calorietracker.model;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("User")
 public class User {
-    @Id
-    private long id;
     private String username;
     private String email;
     private String password;
@@ -25,7 +22,6 @@ public class User {
     public User() {
 
     }
-
     public String getUsername() {
         return username;
     }
@@ -41,11 +37,9 @@ public class User {
     public int getAge() {
         return age;
     }
-
     public boolean isRecommend() {
         return recommend;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
