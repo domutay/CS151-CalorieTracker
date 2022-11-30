@@ -32,6 +32,11 @@ public class RegisterController {
     public String registerSubmit(@ModelAttribute UserDto userDto, Model model) {
         model.addAttribute("user", userDto);
         userService.registerNewUserAccount(userDto);
+        if (!userService.isVerified()) {
+            model.addAttribute("error", userService.getError());
+            System.out.println(userService.getError());
+            return "register";
+        }
         return "home";
     }
 }

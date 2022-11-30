@@ -1,0 +1,9 @@
+.DS_Store
+src/.DS_Store
+src/main/.DS_Store
+src/main/java/.DS_Store
+src/main/java/com/.DS_Store
+src/main/resources/.DS_Store
+src/main/resources/static/.DS_Store
+target/classes/com/calorietracker/model/UserProfile.class
+target/classes/static/login.css
