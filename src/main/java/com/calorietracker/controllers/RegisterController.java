@@ -37,7 +37,6 @@ public class RegisterController {
             System.out.println(userService.getError());
             return "register";
         }
-
         return "home";
     }
 }

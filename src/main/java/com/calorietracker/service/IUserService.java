@@ -4,6 +4,7 @@ import com.calorietracker.dto.UserDto;
 import com.calorietracker.model.User;
 
 public interface IUserService {
+
     void registerNewUserAccount(UserDto accountDto);
     boolean verifyLoginInfo(UserDto userDto);
     User findUserByEmail(String email);

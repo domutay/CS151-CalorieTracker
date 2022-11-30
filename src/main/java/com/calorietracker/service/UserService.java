@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserService implements IUserService {
     @Autowired
     private UserRepository repository;
-
     private String error;
     private boolean verified;
 
@@ -78,7 +77,6 @@ public class UserService implements IUserService {
     private boolean usernameExists(String username) {
         return repository.findUserByUserName(username) != null;
     }
-
     private boolean emailExists(String email) {
         return repository.findByEmail(email) != null;
     }
