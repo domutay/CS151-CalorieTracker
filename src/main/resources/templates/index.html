@@ -38,8 +38,15 @@
       <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
     </ul>
     <ul style="padding-left: 850px">
-      <li><a class="nav-link scrollto" href="#login">Login</a></li>
-      <li><a class="nav-link scrollto" th:href="@{signup}">Signup</a></li>
+      <span th:if="${signedin}">
+        <li><a class="nav-link scrollto" th:href="@{dashboard}">Dashboard</a></li>
+      </span>
+      <span th:if="${!signedin}">
+        <li><a class="nav-link scrollto" href="#login">Login</a></li>
+      </span>
+      <span th:if="${!signedin}">
+        <li><a class="nav-link scrollto" th:href="@{signup}">Signup</a></li>
+      </span>
     </ul>
     <i class="bi bi-list mobile-nav-toggle"></i>
   </nav><!-- .navbar -->

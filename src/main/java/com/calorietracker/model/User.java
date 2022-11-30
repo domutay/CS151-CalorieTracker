@@ -60,4 +60,8 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public UserProfile getUserProfile() {
+        return userProfile;
+    }
 }
