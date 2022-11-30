@@ -22,21 +22,20 @@ import javax.servlet.http.HttpServletRequest;
 public class RegisterController {
     @Autowired
     private UserService userService = new UserService();
-    @GetMapping("/register")
+    @GetMapping("/signup")
     public String register(Model model) {
         UserDto userDto = new UserDto();
         model.addAttribute("user", userDto);
-        return "register";
+        return "signup";
     }
-    @PostMapping("/home")
+    @PostMapping("/signup")
     public String registerSubmit(@ModelAttribute UserDto userDto, Model model) {
         model.addAttribute("user", userDto);
         userService.registerNewUserAccount(userDto);
         if (!userService.isVerified()) {
             model.addAttribute("error", userService.getError());
-            System.out.println(userService.getError());
-            return "register";
+            return "signup";
         }
-        return "home";
+        return "dashboard";
     }
 }
