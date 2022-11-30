@@ -9,6 +9,7 @@ public class User {
     private String password;
     private int age;
     private boolean recommend;
+    private UserProfile userProfile;
 
     public User(String username, String email, String password, int age, boolean recommend) {
         super();

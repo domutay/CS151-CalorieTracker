@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 user-scalable=no" />
+  <meta name="theme-color" content="#000000">
+
+  <title>CalPal-Calorie Tracker</title>
+
+  <!-- Google Fonts -->
+  <link
+          href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Satisfy"
+          rel="stylesheet">
+
+  <!-- Bootstrap CSS Files -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+  <!-- Template Main CSS File -->
+  <link th:href="@{/assets/css/style.css}" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex justify-content-center align-items-center header-transparent">
+
+  <nav id="navbar" class="navbar">
+    <ul>
+      <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+      <li><a class="nav-link scrollto" href="#about">About</a></li>
+      <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+    </ul>
+    <ul style="padding-left: 850px">
+      <li><a class="nav-link scrollto" href="#login">Login</a></li>
+      <li><a class="nav-link scrollto" th:href="@{signup}">Signup</a></li>
+    </ul>
+    <i class="bi bi-list mobile-nav-toggle"></i>
+  </nav><!-- .navbar -->
+
+</header><!-- End Header -->
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+  <div class="hero-container">
+    <h1>CalPal</h1>
+    <h2 style="font-size: 15px;"> <em> Calorie Tracker</em></h2>
+    <a href="#about" class="btn-scroll scrollto" title="Scroll Down"><i class="bx bx-chevron-down"></i></a>
+  </div>
+</section><!-- End Hero -->
+
+<main id="main">
+
+  <!-- ======= About Me Section ======= -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-title">
+        <span>About CalPal</span>
+        <h2>About CalPal</h2>
+        <p>CalPal is calorie tracker application, designed to track the calories you eat in a day! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas dui id ornare arcu odio ut sem nulla pharetra. Id aliquet lectus proin nibh nisl. Quis varius quam quisque id diam vel quam elementum. Non curabitur gravida arcu ac. Pharetra convallis posuere morbi leo urna molestie at elementum.   </p>
+
+          </div>
+        </div>
+
+      </div>
+  </section><!-- End About Me Section -->
+
+  <!-- ======= Login Section ======= -->
+  <section id="login" style="padding-left: 550px">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 contents">
+            <div class="row justify-content-center">
+              <div class="col-md-8">
+                <div class="mb-4">
+                  <h3>Log In </h3>
+                  <p class="mb-4" th:text="${error}" ></p>
+                </div>
+                <form th:action="@{/}" th:object="${user}" method="post">
+                  <div class="form-group first">
+                    <label for="email">Email</label>
+                    <input th:field="*{email}" type="text" class="form-control" id="email">
+                  </div>
+                  <div class="form-group last mb-4">
+                    <label for="password">Password</label>
+                    <input th:field="*{password}" type="password" class="form-control" id="password">
+                  </div>
+                  <div class="d-flex mb-5 align-items-center">
+                    <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
+                      <input type="checkbox" checked="checked" />
+                      <div class="control__indicator"></div>
+                    </label>
+                    <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>
+                  </div>
+                  <input type="submit" value="Log In" class="btn text-yellow btn-block btn-dark">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </section>
+
+  <!-- ======= Contact Me Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title">
+        <span>Contact Us</span>
+        <h2>Contact Us</h2>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-12">
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="info-box">
+                <i class="bx bx-share-alt"></i>
+                <h3>Social Profiles</h3>
+                <div class="social-links">
+                  <a href="https://linkedin.com/in/bhagyeshrathi07" class="linkedin"><i
+                          class="bi bi-linkedin"></i></a>
+                  <a href="https://github.com/bhagyeshrathi07?tab=repositories" class="github"><i
+                          class="bi bi-github"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="info-box mt-4">
+                <i class="bx bx-envelope"></i>
+                <h3>Email Us</h3>
+                <a href="mailto:bhageyesh2161@gmail.com">bhageyesh2161@gmail.com</a>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="info-box mt-4">
+                <i class="bx bx-phone-call"></i>
+                <h3>Call Us</h3>
+                <p>+1 (669) 888-6214</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Contact Me Section -->
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+  <div class="container">
+    <a class="footer-link" href="">LinkedIn</a>
+    <a class="footer-link" href="https://github.com/domlabutay/CS151-CalorieTracker/tree/main/project_proposal">Github</a>
+    <a class="footer-link" href="">Website</a>
+    <p class="copyright">© 2022 Bhagyesh Rathi.</p>
+
+  </div>
+</footer>
+
+<!-- End Footer -->
+
+<!--JS Files -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+<!-- Template Main JS File -->
+<script th:src="@{/assets/js/main.js}"></script>
+
+</body>
+
+</html>
