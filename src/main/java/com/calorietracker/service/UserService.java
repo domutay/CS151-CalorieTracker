@@ -16,8 +16,9 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserService implements IUserService {
     @Autowired
     private UserRepository repository;
+    private User currentUser;
     private String error;
-    private boolean verified;
+    private boolean verified = false;
 
     public void registerNewUserAccount(UserDto userDto) {
         try {
@@ -30,7 +31,7 @@ public class UserService implements IUserService {
             if (userDto.getPassword().length() < 8 || userDto.getPassword().length() > 16) {
                 throw new InvalidPasswordException("Password must be between 8-16 characters in length.");
             }
-            if (userDto.getUsername().length() < 3 || userDto.getUsername().length() > 10) {
+            if (userDto.getUsername().length() < 3 || userDto.getUsername().length() > 16) {
                 throw new InvalidUsernameException("Username must be between 3-10 characters in length");
             }
             if (userDto.getEmail().length() < 3) {
@@ -59,10 +60,15 @@ public class UserService implements IUserService {
             user.setPassword(userDto.getPassword());
             user.setAge(userDto.getAge());
             user.setRecommend(userDto.isRecommend());
+            currentUser = user;
             repository.save(user);
         }
     }
     public void registerUserProfile(UserProfileDto userProfileDto) {
+
+    }
+
+    public void registerFoodItem(String food, int calories) {
 
     }
     public boolean verifyLoginInfo(UserDto userDto) {
@@ -76,9 +82,12 @@ public class UserService implements IUserService {
         }
         catch (LoginException le) {
             error = le.getMessage();
-            return false;
+            verified = false;
+            return verified;
         }
-        return true;
+        verified = true;
+        currentUser = findUserByEmail(userDto.getEmail());
+        return verified;
     }
     private boolean passwordCorrect(String email, String password) {
         return repository.findByEmail(email).getPassword().equals(password);
@@ -113,5 +122,9 @@ public class UserService implements IUserService {
 
     public String getError() {
         return error;
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
     }
 }

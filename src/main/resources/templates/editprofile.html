@@ -22,15 +22,16 @@
     <div class="bd-example-snippet bd-code-snippet"><div class="bd-example">
       <form>
         <fieldset class="mb-3">
-          <legend>Do you have any food allergies?</legend>
-          <div class="form-check">
-            <input type="radio" name="radios" class="form-check-input">
-            <label class="form-check-label">Yes</label>
-          </div>
-          <div class="mb-3 form-check">
-            <input type="radio" name="radios" class="form-check-input">
-            <label class="form-check-label">No</label>
-          </div>
+          <legend>Please provide us with all your food allergies if any.</legend>
+          <label for="exampleDataList" class="form-label">Datalist example</label>
+          <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+          <datalist id="datalistOptions">
+            <option value="San Francisco">
+            <option value="New York">
+            <option value="Seattle">
+            <option value="Los Angeles">
+            <option value="Chicago">
+          </datalist>
         </fieldset>
         <fieldset class="mb-3">
           <legend>What is your goal?</legend>
