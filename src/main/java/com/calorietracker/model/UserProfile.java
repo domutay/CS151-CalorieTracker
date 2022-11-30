@@ -10,4 +10,8 @@ public class UserProfile {
     private List<String> likes;
     private List<String> dislikes;
     private boolean weightLoss;
+    private int currentWeight;
+    private int goalWeight;
+    private int dailyCalorieIntake;
+    private int goalCalorieIntake;
 }
