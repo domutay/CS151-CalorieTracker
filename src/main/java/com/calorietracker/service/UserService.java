@@ -127,4 +127,8 @@ public class UserService implements IUserService {
     public User getCurrentUser() {
         return currentUser;
     }
+    public void logout() {
+        currentUser = null;
+        verified = false;
+    }
 }

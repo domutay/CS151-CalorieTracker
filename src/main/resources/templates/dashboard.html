@@ -3,6 +3,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 user-scalable=no" />
+  <meta name="theme-color" content="#000000">
   <title>CalorieTracker Application</title>
 
   <!-- Google Fonts -->
@@ -25,75 +28,80 @@
 
 <body>
 <!-- ======= Header ======= -->
-<section id="signup">
 <header id="header hero" class="fixed-top d-flex justify-content-center align-items-center header-transparent">
 
   <nav id="navbar" class="navbar">
     <ul>
-      <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+      <li><a class="nav-link scrollto" th:href="@{/}">Home</a></li>
       <li><a class="nav-link scrollto" href="#about">About</a></li>
       <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
     </ul>
-    <ul style="padding-left: 850px">
+    <ul style="padding-left: 800px">
 
-      <li><a class="nav-link scrollto" href="#">Logout</a></li>
+      <li><a class="nav-link scrollto" th:href="@{/editprofile}">Preferences</a></li>
+      <li><a class="nav-link scrollto" th:href="@{/logout}">Logout</a></li>
 
     </ul>
     <i class="bi bi-list mobile-nav-toggle"></i>
   </nav><!-- .navbar -->
 
 </header><!-- End Header -->
-<main>
-  <div class="container py-4" >
-    <header class="pb-3 mb-4">
-      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-      </a>
-    </header>
+<section id="signup">
 
-    <h1>Dashboard</h1>
-    <div class="row align-items-md-stretch mb-4">
-      <div class="col-md-6">
-        <div class="shadow h-100 p-5 text-bg-warning rounded-3">
-          <p>Today's Calories:</p>
-          <h1>1500</h1>
-          <a class="btn btn-dark btn-lg" href="#" type="button">Track</a>
+  <main>
+    <div class="container py-4" >
+      <header class="pb-3 mb-4">
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+        </a>
+      </header>
+
+      <h1>Dashboard</h1>
+      <div class="row align-items-md-stretch mb-4">
+        <div class="col-md-6">
+          <div class="shadow h-100 p-5 text-bg-warning rounded-3">
+            <p>Today's Calories:</p>
+            <h1 th:text="${calorieCount}"></h1>
+            <form th:action="@{/dashboardTrack}" th:object="${calorieDto}" method="post">
+              <div class="form-group row">
+                <div class="col-md-4 ">
+                  <label for="calories1">Calories</label>
+                  <input type="number" class="form-control" id="calories1" autocomplete="off" th:field="*{calories}"/>
+                </div>
+              </div>
+
+              <!--      <div class="form-group last mb-4">-->
+              <!--        <label for="food">Password</label>-->
+              <!--        <input th:field="*{food}" type="text" class="form-control" id="food">-->
+              <!--      </div>-->
+              <input type="submit" value="Track" class="btn btn-dark btn-lg">
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="shadow h-100 p-5 bg-dark border rounded-3">
+            <p>Your Daily Calorie Goal:</p>
+            <h1>2400</h1>
+          </div>
+        </div>
+
+      </div>
+      <div class="shadow p-5 mb-4 text-bg-normal border rounded-3">
+        <div class="container-fluid py-5 text-center">
+          <h1>Recommended Meals</h1>
+          <p>Lasagna: 336 Calories, Pasta: 275 Calories</p>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="shadow h-100 p-5 bg-dark border rounded-3">
-          <p>Your Daily Calorie Goal:</p>
-          <h1>2400</h1>
-        </div>
-      </div>
+    </div>
 
     </div>
-    <div class="shadow p-5 mb-4 bg-dark rounded-3">
-      <div class="container-fluid py-5 text-center">
-        <h1>Recommended Meals</h1>
-        <p>Lasagna: 336 Calories, Pasta: 275 Calories</p>
-      </div>
     </div>
-    <a class="btn btn-dark btn-lg" th:href="@{editprofile}" type="button">Edit Profile</a>
-    <form th:action="@{/dashboard}" th:object="${calorie}" method="post">
-      <div class="form-group first">
-        <label for="calories1">Calories</label>
-        <input type="number" th:field="*{calories}" id="calories1">
-      </div>
-<!--      <div class="form-group last mb-4">-->
-<!--        <label for="food">Password</label>-->
-<!--        <input th:field="*{food}" type="text" class="form-control" id="food">-->
-<!--      </div>-->
-      <input type="submit" value="Track" class="btn text-yellow btn-block btn-dark">
-    </form>
+    </div>
+  </main>
 </section>
 
-  </div>
-  </div>
-  </div>
-</main>
 
 <!-- ======= Footer ======= -->
-<footer id="footer">
+<footer class="footer" id="footer">
   <div class="container">
     <a class="footer-link" href="">LinkedIn</a>
     <a class="footer-link" href="https://github.com/domlabutay/CS151-CalorieTracker/tree/main/project_proposal">Github</a>
