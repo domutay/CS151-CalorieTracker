@@ -22,8 +22,8 @@
 
 ## Team members working on the project report:
 * Bhagyesh Rathi : Creted and wrote the report for the project.
-* Dominic Labutay :  
-* Brendanm Requierme : 
+* Dominic Labutay : Updated UML diagrams.
+* Brendanm Requierme : Updated Class diagram.
 
 ## Problem/issue to resolve: 
 * People having trouble with dieting/counting their calories
