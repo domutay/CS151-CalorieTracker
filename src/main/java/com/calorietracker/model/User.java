@@ -2,6 +2,8 @@ package com.calorietracker.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+
 @Document("User")
 public class User {
     private String username;
@@ -10,6 +12,9 @@ public class User {
     private int age;
     private boolean recommend;
     private UserProfile userProfile;
+
+    private Calorie calorie;
+    private ArrayList<String> recipes = new ArrayList<>();
 
     public User(String username, String email, String password, int age, boolean recommend) {
         super();
@@ -63,5 +68,10 @@ public class User {
 
     public UserProfile getUserProfile() {
         return userProfile;
+    }
+
+    public void addRecipe(String recipe) {
+        this.recipes.add(recipe);
+        return;
     }
 }

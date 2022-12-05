@@ -3,6 +3,7 @@ package com.calorietracker.controllers;
 import com.calorietracker.dto.CalorieDto;
 import com.calorietracker.dto.UserDto;
 import com.calorietracker.dto.UserProfileDto;
+
 import com.calorietracker.model.Food;
 import com.calorietracker.service.FoodDataService;
 import com.calorietracker.service.UserDataService;
@@ -15,7 +16,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 import java.util.List;
+
+import java.io.IOException;
+
 
 @Controller
 public class SiteController {
@@ -25,7 +30,6 @@ public class SiteController {
     private UserDataService userDataService = new UserDataService();
     @Autowired
     private FoodDataService foodDataService = new FoodDataService();
-
     @GetMapping("/")
     public String home(Model model) {
         UserDto userDto = new UserDto();
@@ -63,7 +67,7 @@ public class SiteController {
         UserProfileDto userProfileDto = new UserProfileDto();
         model.addAttribute("userProfile", userProfileDto);
 
-        return "editprofile";
+        return "dashboard";
     }
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
@@ -91,5 +95,20 @@ public class SiteController {
         userService.logout();
         return "redirect:/";
     }
+
+    @GetMapping("/addRecipe")
+    public String addRecipe(Model model) {
+
+        return "redirect:/dashboard";
+    }
+    @PostMapping("/addFoodDB")
+    public String addFoodDB(@ModelAttribute CalorieDto calorieDto, Model model) throws IOException, InterruptedException {
+        model.addAttribute("calorieDto", calorieDto);
+        calorieDto.setUsername(userService.getCurrentUser().getUsername());
+        calorieDto.setCalories(foodDataService.setQuery(calorieDto.getFoodName()));
+        userDataService.registerUserCalories(calorieDto);
+        return "redirect:/dashboard";
+    }
+
 
 }

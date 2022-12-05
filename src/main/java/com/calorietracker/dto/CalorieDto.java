@@ -3,7 +3,7 @@ package com.calorietracker.dto;
 public class CalorieDto {
     private String username;
     private int calories;
-
+    private String foodName;
     public String getUsername() {
         return username;
     }
@@ -19,4 +19,9 @@ public class CalorieDto {
     public void setCalories(int calories) {
         this.calories = calories;
     }
+
+    public void setFoodName(String food) { this.foodName = food;}
+
+    public String getFoodName() {return foodName;}
+
 }

@@ -100,6 +100,22 @@
           </table>
         </div>
       </div>
+
+      <form th:action="@{/addFoodDB}" th:object="${calorieDto}" method="post">
+        <div class="form-group row">
+          <div class="col-md-4 ">
+            <label for="foodName">Enter Food</label>
+            <input type="text" placeholder="Tomato.." class="form-control" id="foodName" th:field="*{foodName}"/>
+          </div>
+        </div>
+        <input type="submit" value="Add Food" onclick="confirmFood()" class="btn btn-dark btn-lg">
+        <script>
+          function confirmFood() {
+            alert(document.getElementById("foodName").value + " has been added to your intake!");
+          }
+        </script>
+      </form>
+
     </div>
 
     </div>

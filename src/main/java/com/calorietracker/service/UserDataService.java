@@ -43,4 +43,5 @@ public class UserDataService {
     public boolean userHasCalorie(String username) {
         return calorieRepository.findByUsername(username) != null;
     }
+
 }

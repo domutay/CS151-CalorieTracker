@@ -27,9 +27,9 @@ public class FoodDataService {
     private List<Food> foods;
     private static String FDC_URL = "https://api.nal.usda.gov/fdc/v1/foods/search?api_key=XCUnqGieAd5LPyZck2xI19iC6eUTOOjxfTzmSKFe&query=kcal&dataType=Survey%20%28FNDDS%29&pageSize=5&pageNumber=2&sortBy=dataType.keyword&sortOrder=asc";
     private String api_key = "XCUnqGieAd5LPyZck2xI19iC6eUTOOjxfTzmSKFe";
-    private String query = "";
+    private String query = "cheese";
     private String dataType = "Survey (FNDDS)";
-    private String pageSize = "5";
+    private String pageSize = "1";
     private String targetCalories;
     private String currentCalories;
 
@@ -64,11 +64,40 @@ public class FoodDataService {
 
     }
 
+    @PostConstruct
+    private int fetchFoodCalories() throws IOException, InterruptedException {
+        StringBuilder builder = new StringBuilder("https://api.nal.usda.gov/fdc/v1/foods/search");
+        builder.append("?api_key=");
+        builder.append(URLEncoder.encode(api_key,StandardCharsets.UTF_8.toString()));
+        builder.append("&query=");
+        builder.append(URLEncoder.encode(query,StandardCharsets.UTF_8.toString()));
+        builder.append("&dataType=");
+        builder.append(URLEncoder.encode(dataType,StandardCharsets.UTF_8.toString()));
+        builder.append("&pageSize=");
+        builder.append(URLEncoder.encode(pageSize,StandardCharsets.UTF_8.toString()));
+        URI uri = URI.create(builder.toString());
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(uri)
+                .build();
+        HttpResponse<String> httpResponse = client.send(request, HttpResponse.BodyHandlers.ofString());
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode jsonNode = objectMapper.readTree(httpResponse.body());
+        return jsonNode.get("foods").get(0).get("foodNutrients").get(3).get("value").asInt();
+    }
     public void setTargetCalories(String targetCalories) {
         this.targetCalories = targetCalories;
     }
 
+
     public List<Food> getFoods() {
         return foods;
+    }
+
+    public int setQuery(String query) throws IOException, InterruptedException {
+        this.query = query;
+        int x = this.fetchFoodCalories();
+        System.out.println("Your " + query + " has " + x + " calories.");
+        return x;
     }
 }
