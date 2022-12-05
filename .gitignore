@@ -7,3 +7,4 @@ src/main/resources/.DS_Store
 src/main/resources/static/.DS_Store
 target/classes/com/calorietracker/model/UserProfile.class
 target/classes/static/login.css
+/target/

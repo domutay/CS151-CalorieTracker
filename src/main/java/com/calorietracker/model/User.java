@@ -10,7 +10,6 @@ public class User {
     private int age;
     private boolean recommend;
     private UserProfile userProfile;
-    private Calorie calorie;
 
     public User(String username, String email, String password, int age, boolean recommend) {
         super();
@@ -19,9 +18,6 @@ public class User {
         this.password = password;
         this.age = age;
         this.recommend = recommend;
-        calorie = new Calorie();
-        calorie.setUsername(username);
-        calorie.setCalories(0);
     }
 
     public User() {

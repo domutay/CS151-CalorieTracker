@@ -55,7 +55,7 @@
                 <p class="mb-4" th:text="${error}" ></p>
               </div>
 
-              <form th:action="@{/signup}" th:object="${user}" method="post">
+              <form th:action="@{/signup/submit}" th:object="${user}" method="post">
                 <div class="form-group first">
                   <label for="username">Username</label>
                   <input th:field="*{username}" type="text" class="form-control" id="username">

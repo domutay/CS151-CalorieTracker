@@ -28,13 +28,8 @@ public class UserProfile {
         this.goalWeight = goalWeight;
         this.dailyCalorieIntake = dailyCalorieIntake;
         this.goalCalorieIntake = goalCalorieIntake;
-        caloriesToday = 0;
     }
     public UserProfile() {
 
-    }
-
-    public int getCaloriesToday() {
-        return caloriesToday;
     }
 }
