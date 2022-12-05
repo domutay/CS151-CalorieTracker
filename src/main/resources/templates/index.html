@@ -38,8 +38,16 @@
       <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
     </ul>
     <ul style="padding-left: 850px">
-      <li><a class="nav-link scrollto" href="#login">Login</a></li>
-      <li><a class="nav-link scrollto" th:href="@{signup}">Signup</a></li>
+      <span th:if="${signedin}">
+        <li><a class="nav-link scrollto" th:href="@{dashboard}">Dashboard</a></li>
+      </span>
+      <span th:unless="${signedin}">
+        <li><a class="nav-link scrollto" href="#login">Login</a></li>
+      </span>
+      <span th:unless="${signedin}">
+        <li><a class="nav-link scrollto" th:href="@{signup}">Signup</a></li>
+      </span>
+
     </ul>
     <i class="bi bi-list mobile-nav-toggle"></i>
   </nav><!-- .navbar -->
@@ -82,7 +90,7 @@
                   <h3>Log In </h3>
                   <p class="mb-4" th:text="${error}" ></p>
                 </div>
-                <form th:action="@{/}" th:object="${user}" method="post">
+                <form th:action="@{/submit}" th:object="${user}" method="post">
                   <div class="form-group first">
                     <label for="email">Email</label>
                     <input th:field="*{email}" type="text" class="form-control" id="email">
