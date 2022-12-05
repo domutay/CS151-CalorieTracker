@@ -42,7 +42,7 @@ public class SiteController {
         model.addAttribute("user", userDto);
         return "signup";
     }
-    @PostMapping("/signup")
+    @PostMapping("/signup/submit")
     public String registerSubmit(@ModelAttribute UserDto userDto, Model model) {
         model.addAttribute("user", userDto);
         userService.registerNewUserAccount(userDto);
@@ -50,7 +50,7 @@ public class SiteController {
             model.addAttribute("error", userService.getError());
             return "signup";
         }
-        return "dashboard";
+        return "redirect:/dashboard";
     }
     @GetMapping("/editprofile")
     public String editprofile(Model model) {
