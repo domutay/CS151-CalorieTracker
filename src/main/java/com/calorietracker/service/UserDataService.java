@@ -9,7 +9,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.PostConstruct;
 
 @Service
 @Transactional
@@ -19,8 +18,7 @@ public class UserDataService {
     @Autowired
     private CalorieRepository calorieRepository;
 
-    @PostConstruct
-    @Scheduled(cron = "@daily")
+    @Scheduled(cron = "0 0 0 * * *")
     public void resetUserCalories() {
         calorieRepository.deleteAll();
     }
