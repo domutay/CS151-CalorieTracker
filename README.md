@@ -22,8 +22,8 @@
 
 ## Team members working on the project report:
 * Bhagyesh Rathi : Creted and wrote the report for the project.
-* Dominic Labutay :  
-* Brendanm Requierme : 
+* Dominic Labutay : Updated UML diagrams.
+* Brendanm Requierme : Updated Class diagram.
 
 ## Problem/issue to resolve: 
 * People having trouble with dieting/counting their calories
@@ -44,10 +44,11 @@
 
 |Image|Description|
 |--|--|
-|[CalorieTrackerSD.png](https://github.com/domlabutay/CS151-CalorieTracker/blob/main/diagrams/CalorieTrackerSD.png)|Contains the State Diagram for CalorieTracker|
+|[CS151 CalorieTracker State Diagram.png](https://github.com/domlabutay/CS151-CalorieTracker/blob/main/diagrams/CalorieTrackerSD.png)|Contains the State Diagram for CalorieTracker|
 |[CS151 Calorie Tracker Class Diagram.pdf](https://github.com/domlabutay/CS151-CalorieTracker/blob/main/diagrams/CS151%20Calorie%20Tracker%20Class%20Diagram.pdf)|Contains the Class Diagram for CalorieTracker|
 |[CS151 Calorie Tracker Use Case Diagram.pdf](https://github.com/domlabutay/CS151-CalorieTracker/blob/main/diagrams/CS151%20Calorie%20Tracker%20Use%20Case%20Diagram.pdf)|Contains the Use Case Diagram for CalorieTracker|
 |[CS151 Calorie Tracker Timing Diagram.png](https://github.com/domlabutay/CS151-CalorieTracker/blob/main/diagrams/CS-151%20Calorie%20Tracker%20Timing%20Diagram.png)|Contains the Timing Diagram for CalorieTracker|
+|[CS151 Calorie Tracker Sequence Diagram.png](https://github.com/domlabutay/CS151-CalorieTracker/blob/main/diagrams/CS151%20Calorie%20Tracker%20Sequence%20Diagram.png)| Contains the Sequence Diagram for CalorieTracker|
 
 
 ## Functionality: How our solution tackles the issues?
@@ -63,7 +64,7 @@ This solution will tackle all of the issues in one central place. The applicatio
 * Get recipe for dishes
 
 ## Solution:
-We solved the solution for the people who were having hard time keeping track of their calorie and to reach their goal of losing or gaining weight. Most of the diseases these days are due to obesity and unbalanced dies. Our applicaiton solved this problem by tracking the calorie count, setting the goal so that user can reach their weight goal. 
+We solved the solution for the people who were having hard time keeping track of their calorie and to reach their goal of losing or gaining weight. Most of the diseases these days are due to obesity and unbalanced dies. Our applicaiton solved this problem by tracking the calorie count, setting the goal so that user can reach their weight goal. By addressing all of the problems at once, this application will be effective. By figuring out how many calories a person has eaten each day based on the food they have entered, the program will make it simple for them to keep track of their intake. The app will include recipes in addition to culinary recommendations, allowing users to have a more hands-on experience and prepare the dishes themselves. Additionally, the app will have a feature that allows users to keep track of their daily nutritional intake based on the foods they consume. This feature adds a level of customization and helps users see how healthy the food they consume is.
 
 # Steps to run the application:
 * Download the code from : [CalPal](https://github.com/domlabutay/CS151-CalorieTracker.git)
