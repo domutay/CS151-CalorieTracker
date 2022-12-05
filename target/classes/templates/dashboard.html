@@ -46,9 +46,9 @@
   </nav><!-- .navbar -->
 
 </header><!-- End Header -->
-<section id="signup">
+<!--<section id="signup" class="min-h-screen bg-gray-50">-->
 
-  <main>
+  <main id="signup" class="min-h-screen bg-gray-50">
     <div class="container py-4" >
       <header class="pb-3 mb-4">
         <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
@@ -85,10 +85,19 @@
         </div>
 
       </div>
-      <div class="shadow p-5 mb-4 text-bg-normal border rounded-3">
+      <div class="shadow p-5 mb-4 text-bg-dark border rounded-3">
         <div class="container-fluid py-5 text-center">
           <h1>Recommended Meals</h1>
-          <p>Lasagna: 336 Calories, Pasta: 275 Calories</p>
+          <table class="table">
+            <tr class="text-light">
+              <th>Food</th>
+              <th>Calories</th>
+            </tr>
+            <tr th:each="food : ${foods}" class="text-light">
+              <td th:text="${food.description}"></td>
+              <td th:text="${food.calories}"></td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
@@ -97,19 +106,19 @@
     </div>
     </div>
   </main>
-</section>
+
 
 
 <!-- ======= Footer ======= -->
-<footer class="footer" id="footer">
-  <div class="container">
-    <a class="footer-link" href="">LinkedIn</a>
-    <a class="footer-link" href="https://github.com/domlabutay/CS151-CalorieTracker/tree/main/project_proposal">Github</a>
-    <a class="footer-link" href="">Website</a>
-    <p class="copyright">© 2022 Team7.</p>
+<!--<footer class="footer" id="footer">-->
+<!--  <div class="container">-->
+<!--    <a class="footer-link" href="">LinkedIn</a>-->
+<!--    <a class="footer-link" href="https://github.com/domlabutay/CS151-CalorieTracker/tree/main/project_proposal">Github</a>-->
+<!--    <a class="footer-link" href="">Website</a>-->
+<!--    <p class="copyright">© 2022 Team7.</p>-->
 
-  </div>
-</footer>
+<!--  </div>-->
+<!--</footer>-->
 
 <!-- End Footer -->
 

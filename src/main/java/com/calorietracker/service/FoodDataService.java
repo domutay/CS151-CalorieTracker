@@ -16,7 +16,10 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
+
+import static java.lang.Integer.parseInt;
 
 @Service
 public class FoodDataService {
@@ -24,10 +27,11 @@ public class FoodDataService {
     private List<Food> foods;
     private static String FDC_URL = "https://api.nal.usda.gov/fdc/v1/foods/search?api_key=XCUnqGieAd5LPyZck2xI19iC6eUTOOjxfTzmSKFe&query=kcal&dataType=Survey%20%28FNDDS%29&pageSize=5&pageNumber=2&sortBy=dataType.keyword&sortOrder=asc";
     private String api_key = "XCUnqGieAd5LPyZck2xI19iC6eUTOOjxfTzmSKFe";
-    private String query = "pepperoni pizza";
+    private String query = "";
     private String dataType = "Survey (FNDDS)";
     private String pageSize = "5";
     private String targetCalories;
+    private String currentCalories;
 
     @PostConstruct
     private void fetchFoodData() throws IOException, InterruptedException {
@@ -48,7 +52,12 @@ public class FoodDataService {
         HttpResponse<String> httpResponse = client.send(request, HttpResponse.BodyHandlers.ofString());
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(httpResponse.body());
-        for (int i=0; i<5; i++) {
+        foods = new ArrayList<>();
+        for (int i=0; i<jsonNode.get("foods").size(); i++) {
+            String foodDescription = jsonNode.get("foods").get(i).get("description").asText();
+            int foodCalories = jsonNode.get("foods").get(i).get("foodNutrients").get(3).get("value").asInt();
+            Food food = new Food(foodDescription, foodCalories);
+            foods.add(food);
             System.out.println(jsonNode.get("foods").get(i).get("description").asText());
             System.out.println(jsonNode.get("foods").get(i).get("foodNutrients").get(3).get("value").asText());
         }
@@ -57,5 +66,9 @@ public class FoodDataService {
 
     public void setTargetCalories(String targetCalories) {
         this.targetCalories = targetCalories;
+    }
+
+    public List<Food> getFoods() {
+        return foods;
     }
 }
