@@ -88,11 +88,11 @@
       <div class="shadow p-5 mb-4 text-bg-normal border rounded-3">
         <div class="container-fluid py-5 text-center">
           <h1>Recommended Meals</h1>
-          <p>Lasagna: 336 Calories, Pasta: 275 Calories</p>
+          <p>Chicken Pot Pie: 599 Calories, Blueberry Pie: 271 Calories</p>
         </div>
       </div>
 
-      <form th:action="@{/addFood}" th:object="${calorieDto}" method="post">
+      <form th:action="@{/addFoodDB}" th:object="${calorieDto}" method="post">
         <div class="form-group row">
           <div class="col-md-4 ">
             <label for="foodName">Enter Food</label>
@@ -100,41 +100,12 @@
           </div>
         </div>
         <input type="submit" value="Add Food" onclick="confirmFood()" class="btn btn-dark btn-lg">
-        <input type="button" value="Alert Bananas" onclick="alertBanana()" class="btn btn-dark btn-lg">
-
-
-
         <script>
           function confirmFood() {
-
             alert(document.getElementById("foodName").value + " has been added to your intake!");
           }
         </script>
       </form>
-
-      <body>
-      <div id="myData"></div>
-      <script>
-        fetch('food.json')
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                appendData(data);
-            })
-            .catch(function (err) {
-                console.log('error: ' + err);
-            });
-        function appendData(data) {
-            var mainContainer = document.getElementById("myData");
-            for (var i = 0; i < data.length; i++) {
-                var div = document.createElement("div");
-                div.innerHTML = 'Food: ' + data[0].foods[i].lowercaseDescription + 'Calories: ' + data[0].foods[i].foodNutrients.nutrientId.find(1008).nutrientNumber;
-                mainContainer.appendChild(div);
-            }
-        }
-      </script>
-      </body>
 
     </div>
 
