@@ -98,5 +98,5 @@ We solved the solution for the people who were having hard time keeping track of
 
 ## References: 
 
-* 1. API KEY: FOOD DATA CENTRAL https://fdc.nal.usda.gov/api-guide.html
-* 2. https://api.data.gov/docs/api-key/ ← How to use the API Key
+* [1]. API KEY: FOOD DATA CENTRAL https://fdc.nal.usda.gov/api-guide.html
+* [2]. https://api.data.gov/docs/api-key/ ← How to use the API Key
