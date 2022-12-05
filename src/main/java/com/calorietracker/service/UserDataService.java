@@ -43,4 +43,15 @@ public class UserDataService {
     public boolean userHasCalorie(String username) {
         return calorieRepository.findByUsername(username) != null;
     }
+
+    public void registerUserCaloriesJSON(CalorieDto calorieDto) {
+
+        Calorie calorie = findCalorieByUsername(calorieDto.getUsername());
+        calorie.setCalories(calorieDto.getFoodCalories() + calorie.getCalories());
+        //Add in logic to read json file here for specific food item
+        //Add in calories of specific food item
+
+        calorieRepository.save(calorie);
+
+    }
 }

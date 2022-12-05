@@ -43,5 +43,6 @@ This solution will tackle all of the issues in one central place. The applicatio
 
 ## References: 
 
-* 1. API KEY: FOOD DATA CENTRAL https://fdc.nal.usda.gov/api-guide.html
-* 2. https://api.data.gov/docs/api-key/ ← How to use the API Key
+* 1. API KEY: XCUnqGieAd5LPyZck2xI19iC6eUTOOjxfTzmSKFe
+* 2. FOOD DATA CENTRAL https://fdc.nal.usda.gov/api-guide.html
+* 3. https://api.data.gov/docs/api-key/ ← How to use the API Key

@@ -57,7 +57,7 @@ public class SiteController {
         UserProfileDto userProfileDto = new UserProfileDto();
         model.addAttribute("userProfile", userProfileDto);
 
-        return "editprofile";
+        return "dashboard";
     }
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
@@ -84,5 +84,24 @@ public class SiteController {
         userService.logout();
         return "redirect:/";
     }
+
+
+
+
+    @GetMapping("/addRecipe")
+    public String addRecipe(Model model) {
+
+        return "redirect:/dashboard";
+    }
+
+    @PostMapping("/addFood")
+    public String addFood(@ModelAttribute CalorieDto calorieDto, Model model) {
+        model.addAttribute("calorieDto", calorieDto);
+        calorieDto.setUsername(userService.getCurrentUser().getUsername());
+        userDataService.registerUserCaloriesJSON(calorieDto);
+        return "redirect:/dashboard";
+    }
+
+
 
 }
