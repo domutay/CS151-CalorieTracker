@@ -1,9 +1,12 @@
 package com.calorietracker.model;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("Calorie")
 public class Calorie {
+    @Id
+    private String id;
     private String username;
     private int calories;
     public Calorie(String username, int calories) {

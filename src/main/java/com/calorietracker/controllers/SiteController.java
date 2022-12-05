@@ -27,11 +27,11 @@ public class SiteController {
         model.addAttribute("signedin", userService.isVerified());
         return "index";
     }
-    @PostMapping("/")
+    @PostMapping("/submit")
     public String loginSubmit(@ModelAttribute UserDto userDto, Model model) {
         model.addAttribute("user", userDto);
         if (userService.verifyLoginInfo(userDto)) {
-            return "dashboard";
+            return "redirect:/dashboard";
         }
         model.addAttribute("error", userService.getError());
         return "index";
@@ -61,20 +61,28 @@ public class SiteController {
     }
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
-        CalorieDto calorieDto = new CalorieDto();
-        model.addAttribute("calorie", calorieDto);
         if (!userService.isVerified()) {
             return "index";
         }
+        CalorieDto calorieDto = new CalorieDto();
+        int currentCalories = userDataService.findCalorieByUsername(userService.getCurrentUser().getUsername()).getCalories();
+        model.addAttribute("calorieDto", calorieDto);
+        model.addAttribute("calorieCount", currentCalories);
+
         return "dashboard";
     }
 
-    @PostMapping("/dashboard")
+    @PostMapping("/dashboardTrack")
     public String dashboardTrack(@ModelAttribute CalorieDto calorieDto, Model model) {
-        model.addAttribute("calorie", calorieDto);
+        model.addAttribute("calorieDto", calorieDto);
         calorieDto.setUsername(userService.getCurrentUser().getUsername());
         userDataService.registerUserCalories(calorieDto);
-        return "dashboard";
+        return "redirect:/dashboard";
+    }
+    @GetMapping("/logout")
+    public String logout(Model model) {
+        userService.logout();
+        return "redirect:/";
     }
 
 }
