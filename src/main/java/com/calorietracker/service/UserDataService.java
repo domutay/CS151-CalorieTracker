@@ -9,6 +9,8 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.PostConstruct;
+
 @Service
 @Transactional
 @EnableMongoRepositories
@@ -17,15 +19,30 @@ public class UserDataService {
     @Autowired
     private CalorieRepository calorieRepository;
 
-    @Scheduled(cron = "* * * 1 * *")
+    @PostConstruct
+    @Scheduled(cron = "@daily")
     public void resetUserCalories() {
         calorieRepository.deleteAll();
     }
 
     public void registerUserCalories(CalorieDto calorieDto) {
+
+            Calorie calorie = findCalorieByUsername(calorieDto.getUsername());
+            calorie.setCalories(calorieDto.getCalories() + calorie.getCalories());
+            calorieRepository.save(calorie);
+
+
+    }
+    public Calorie findCalorieByUsername(String username) {
+        if (userHasCalorie(username)) {
+            return calorieRepository.findByUsername(username);
+        }
         Calorie calorie = new Calorie();
-        calorie.setUsername(calorieDto.getUsername());
-        calorie.setCalories(calorieDto.getCalories());
-        calorieRepository.save(calorie);
+        calorie.setCalories(0);
+        calorie.setUsername(username);
+        return calorie;
+    }
+    public boolean userHasCalorie(String username) {
+        return calorieRepository.findByUsername(username) != null;
     }
 }
