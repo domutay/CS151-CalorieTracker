@@ -55,7 +55,7 @@
                 <p class="mb-4" th:text="${error}" ></p>
               </div>
 
-              <form th:action="@{/signup}" th:object="${user}" method="post">
+              <form th:action="@{/signup/submit}" th:object="${user}" method="post">
                 <div class="form-group first">
                   <label for="username">Username</label>
                   <input th:field="*{username}" type="text" class="form-control" id="username">
@@ -68,11 +68,12 @@
                   <label for="password">Password</label>
                   <input th:field="*{password}" type="password" class="form-control" id="password">
                 </div>
-                <div class="form-group mb-4">
-                  <label for="ageRange" class="form-label">Age</label>
-                  <input th:field="*{age}" class="form-range" type="number" name="age" min="0" max="120" step="1" value="18" id="ageRange">
-<!--                  <input th:field="*{age}" type="range" class="form-range" min="0" max="120" step="1" id="ageRange" oninput="this.nextElementSibling.value = this.value">-->
-<!--                  <output>0</output>-->
+                <div class="form-group row">
+                  <div class="col-md-4 ">
+                    <label for="ageRange">Age</label>
+                    <input type="number" class="form-control" id="ageRange" autocomplete="off" th:field="*{age}"
+                           min="0" max="120"/>
+                  </div>
                 </div>
                 <div class="form-group last mb-4">
                   <input th:field="*{recommend}" type="checkbox" class="form-check-input" id="recommendCheck">
