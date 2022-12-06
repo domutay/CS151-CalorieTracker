@@ -3,6 +3,8 @@ package com.calorietracker.controllers;
 import com.calorietracker.dto.CalorieDto;
 import com.calorietracker.dto.UserDto;
 import com.calorietracker.dto.UserProfileDto;
+
+import com.calorietracker.model.Food;
 import com.calorietracker.service.FoodDataService;
 import com.calorietracker.service.UserDataService;
 import com.calorietracker.service.UserService;
@@ -14,7 +16,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
+import java.util.List;
+
 import java.io.IOException;
+
 
 @Controller
 public class SiteController {
@@ -22,10 +28,8 @@ public class SiteController {
     private UserService userService = new UserService();
     @Autowired
     private UserDataService userDataService = new UserDataService();
-
     @Autowired
     private FoodDataService foodDataService = new FoodDataService();
-
     @GetMapping("/")
     public String home(Model model) {
         UserDto userDto = new UserDto();
@@ -72,9 +76,10 @@ public class SiteController {
         }
         CalorieDto calorieDto = new CalorieDto();
         int currentCalories = userDataService.findCalorieByUsername(userService.getCurrentUser().getUsername()).getCalories();
+        List<Food> foodRecommendations = foodDataService.getFoods();
         model.addAttribute("calorieDto", calorieDto);
         model.addAttribute("calorieCount", currentCalories);
-
+        model.addAttribute("foods", foodRecommendations);
         return "dashboard";
     }
 
@@ -90,9 +95,6 @@ public class SiteController {
         userService.logout();
         return "redirect:/";
     }
-
-
-
 
     @GetMapping("/addRecipe")
     public String addRecipe(Model model) {

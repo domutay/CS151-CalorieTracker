@@ -7,6 +7,8 @@ public class UserProfileDto {
     private List<String> likes;
     private List<String> dislikes;
     private boolean weightLoss;
+    private boolean weightGain;
+    private boolean weightNeither;
     private int currentWeight;
     private int goalWeight;
     private int dailyCalorieIntake;
