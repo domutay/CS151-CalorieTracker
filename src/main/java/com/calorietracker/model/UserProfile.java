@@ -11,7 +11,9 @@ public class UserProfile {
     private List<String> allergies;
     private List<String> likes;
     private List<String> dislikes;
-    private boolean weightLoss; // TRUE: Lose weight, FALSE: Gain weight
+    private boolean weightLoss;
+    private boolean weightGain;
+    private boolean weightNeither;
     private int currentWeight;
     private int goalWeight;
     private int dailyCalorieIntake;

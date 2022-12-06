@@ -27,7 +27,7 @@ public class FoodDataService {
     private List<Food> foods;
     private static String FDC_URL = "https://api.nal.usda.gov/fdc/v1/foods/search?api_key=XCUnqGieAd5LPyZck2xI19iC6eUTOOjxfTzmSKFe&query=kcal&dataType=Survey%20%28FNDDS%29&pageSize=5&pageNumber=2&sortBy=dataType.keyword&sortOrder=asc";
     private String api_key = "XCUnqGieAd5LPyZck2xI19iC6eUTOOjxfTzmSKFe";
-    private String query = "cheese";
+    private String query = "";
     private String dataType = "Survey (FNDDS)";
     private String pageSize = "1";
     private String targetCalories;
@@ -43,7 +43,7 @@ public class FoodDataService {
         builder.append("&dataType=");
         builder.append(URLEncoder.encode(dataType,StandardCharsets.UTF_8.toString()));
         builder.append("&pageSize=");
-        builder.append(URLEncoder.encode(pageSize,StandardCharsets.UTF_8.toString()));
+        builder.append(URLEncoder.encode("5",StandardCharsets.UTF_8.toString()));
         URI uri = URI.create(builder.toString());
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
